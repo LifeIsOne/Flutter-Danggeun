@@ -11,9 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'carrot_market_ui',
-      home: MainScreen(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'carrot_market_ui',
+        home: MainScreen(),
+        theme: ThemeData(
+          scaffoldBackgroundColor: Colors.yellow,
+          textTheme: TextTheme(),
+          appBarTheme: AppBarTheme(),
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(),
+          primarySwatch: Colors.orange,
+        ));
   }
 }
