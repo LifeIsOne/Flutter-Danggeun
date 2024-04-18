@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -7,8 +8,36 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("홈 화면"),
+    return Scaffold(
+      appBar: AppBar(
+        /*상단 바*/
+        title: Row(
+          children: [
+            Text("부전동"),
+            SizedBox(width: 4.0),
+            Icon(CupertinoIcons.chevron_down, size: 15.0)
+          ],
+        ),
+        /* 우측 상단 아이콘, 액션 구현 X*/
+        actions: [
+          IconButton(icon: const Icon(CupertinoIcons.search), onPressed: () {}),
+          IconButton(
+              icon: const Icon(CupertinoIcons.list_dash), onPressed: () {}),
+          IconButton(icon: const Icon(CupertinoIcons.bell), onPressed: () {})
+        ],
+        /* 앱바 하단 얇은 선? */
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(0.5) /*이 바의 크기*/,
+          child: Divider(
+            thickness: 0.5 /* 선 굷기 */,
+            height: 0.5,
+            color: Colors.grey,
+          ),
+        ),
+      ),
+      body: ListView.separated(itemBuilder: (context, index) {
+        return ProductItem
+      }, separatorBuilder: (context, index) => , itemCount: itemCount),
     );
   }
 }
