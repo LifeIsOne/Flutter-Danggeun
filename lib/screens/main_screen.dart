@@ -1,6 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '01_home/HomeScreen.dart';
+import '02_neighborhood_life/eighborhoodLifeScreen.dart';
+import '03_near_me/NearMeScreen.dart';
+import '04_chatting/ChattingScreen.dart';
+import '05_my_carrot/my_carrot_screen.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({
     super.key,
@@ -19,26 +25,15 @@ class _MainScreensState extends State<MainScreen> {
       body: IndexedStack(
         index: _selectedIndex,
         children: [
-          /* index: 0*/
-          Center(
-            child: Text("홈 화면"),
-          ),
-          /* index: 1*/
-          Center(
-            child: Text("동네생활 화면"),
-          ),
-          /* index: 2*/
-          Center(
-            child: Text("내 근처 화면"),
-          ),
-          /* index: 3*/
-          Center(
-            child: Text("채팅 화면"),
-          ),
-          /* index: 4*/
-          Center(
-            child: Text("나의 당근 화면"),
-          ),
+          HomeScreen(),
+          /* index: 1, 동네생활*/
+          NeighborhoodLifeScreen(),
+          /* index: 2, 내 근처*/
+          NearMeScreen(),
+          /* index: 3, 채팅*/
+          ChattingScreen(),
+          /* index: 4, 나의 당근*/
+          MyCarrotScreen(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar( /* 하단 아이콘 셀렉 바*/
@@ -61,3 +56,13 @@ class _MainScreensState extends State<MainScreen> {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
