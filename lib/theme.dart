@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 ThemeData theme() {
   return ThemeData(
-    scaffoldBackgroundColor: Colors.yellow,
+    scaffoldBackgroundColor: Colors.deepOrange,
     textTheme: textTheme(),
     appBarTheme: appBarTheme(),
     bottomNavigationBarTheme: bottomNavigationBarThemeData(),
@@ -12,7 +12,7 @@ ThemeData theme() {
 }
 
 BottomNavigationBarThemeData bottomNavigationBarThemeData() {
-  return BottomNavigationBarThemeData(
+  return const BottomNavigationBarThemeData(
     selectedItemColor: Colors.orange,
     unselectedItemColor: Colors.black54,
     showUnselectedLabels: true,
