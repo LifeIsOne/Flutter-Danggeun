@@ -1,3 +1,5 @@
+import 'package:daangn/models/product.dart';
+import 'package:daangn/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -35,9 +37,57 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: ListView.separated(itemBuilder: (context, index) {
-        return ProductItem
-      }, separatorBuilder: (context, index) => , itemCount: itemCount),
+      body: ListView.separated(
+        itemBuilder: (context, i) {
+          /* 상품 카드 */
+          return PrductItem(
+            product: productList[i],
+          );
+        },
+        separatorBuilder: (context, index) => Divider(),
+        itemCount: productList.length,
+      ),
+    );
+  }
+}
+
+class PrductItem extends StatelessWidget {
+  const PrductItem({
+    super.key,
+    required this.product,
+  });
+
+  final Product product;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 135.0,
+      padding: EdgeInsets.all(16.0),
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(100.0),
+            child: Image.network(
+              product.urlToImage,
+              width: 115,
+              height: 115,
+              fit: BoxFit.cover,
+            ),
+          ),
+          SizedBox(width: 15.0),
+          /* 상품 티테일 */
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(product.title, style: textTheme().bodyLarge),
+              SizedBox(height: 5.0),
+              Text("${product.address} · ${product.publishedAt}"),
+              SizedBox(height: 5.0),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
